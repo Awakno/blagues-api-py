@@ -11,9 +11,11 @@ def token():
     env = dotenv_values(".env")
     return env["TOKEN"]
 
+
 @pytest.fixture
 def client(token):
     return BlaguesAPI(token)
+
 
 async def test_random_joke(client):
     response = await client.random()
